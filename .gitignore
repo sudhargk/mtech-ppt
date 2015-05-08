@@ -16,6 +16,8 @@
 *.lot
 *.pdf
 *.toc
+*.nav
+*.snm
 
 # Packages #
 ############
