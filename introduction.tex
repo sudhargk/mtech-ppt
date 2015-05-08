@@ -1,6 +1,5 @@
 \section{\texttt{Introduction}}
 \begin{frame}{\textbf{Motivation}}
-
 \begin{figure}
 	\centering
 	\begin{subfigure}[c]{0.3\textwidth}
@@ -12,7 +11,9 @@
     \begin{subfigure}[c]{0.2\textwidth}
 		\includegraphics[width=\textwidth]{./img/motivation3.png} \footnotemark
     \end{subfigure}
+
 \end{figure}
+
 \footnotetext[1]{\tiny{\textbf{Generalized Image Understanding with Probabilistic Ontologies } (\url{http://www.cse.buffalo.edu/~jcorso/r/career}})}
 \footnotetext[2]{\tiny{\textbf{Alderbaran robot nao } (\url{https://www.aldebaran.com/en/humanoid-robot/nao-robot})}}
 \footnotetext[3]{\tiny{\textbf{Google glass } (\url{https://www.google.com/glass/start})}}
@@ -50,5 +51,50 @@
 
 
 \begin{frame}{\textbf{Proposed Framework}}
+\begin{columns}
+	\begin{column}{0.6\textwidth}
+	\begin{figure}
+	\begin{framed}
+		\centering
+		\includegraphics[width=\textwidth]{./img/outline.png}
+	\end{framed}
+		\caption{Proposed framework for video event recognition.}
+	\end{figure}
+	\end{column}
+	\begin{column}{0.3\textwidth}
+		\begin{varblock}[\textwidth]{Event localization}
+			\begin{itemize}							
+				\item \textbf{Why do we need?} Most of the videos are weakly labeled they don't have spatial and temporal segmentation.
+			\end{itemize}
+		\end{varblock}
+		\begin{varblock}[\textwidth]{Event identification}
+			\begin{itemize}
+				\item Predict event label for given Spatio Temporal Volume (STV).
+			\end{itemize}
+		\end{varblock}
+	\end{column}
+\end{columns}	
+\end{frame}
 
+\begin{frame}{\textbf{Related work}}
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		\begin{varblock}[\textwidth]{Spatial Event Localization}
+			\begin{itemize}							
+				\item Selective search of object of intereset after hierarchical segmentation \cite{subwindowsearch}.
+				\item Merge super-voxel segments based on motion features \cite{tubelets}.
+			\end{itemize}
+		\end{varblock}
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\begin{varblock}[\textwidth]{Event Identification}
+		 Generally such problems are tackled in following manner: 
+			\begin{itemize}
+				\item local feature extraction
+				\item feature aggregation
+				\item classifier (such as SVM) to distinguish
+			\end{itemize}
+		\end{varblock}
+	\end{column}
+\end{columns}	
 \end{frame}

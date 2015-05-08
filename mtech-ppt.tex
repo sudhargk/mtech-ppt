@@ -16,7 +16,8 @@
 \usepackage{graphicx} 
 \usepackage{caption}
 \usepackage{subcaption}
-
+\usepackage{framed}
+\usepackage{multicol}
 
 %colors
 \definecolor{orange}{RGB}{255,127,0}
@@ -35,21 +36,25 @@
   \end{beamercolorbox}}%
   \vskip0pt%
 }
-
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+    \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+}
 \setbeamercolor{frametitle}{fg=white,bg=blue!30!black!30}
-\setbeamertemplate{frametitle}[center]{}
 \setbeamerfont{frametitle}{family=\rm}
+\setlength{\FrameSep}{2pt}
+\newenvironment<>{varblock}[2][.9\textwidth]
+	{	\setlength{\textwidth}{#1}
+		\begin{actionenv}#3 
+		\def\insertblocktitle{#2}%
+		\par \usebeamertemplate{block begin}{}
+	}
+	{	\par \usebeamertemplate{block end} \end{actionenv} }
 
-\newenvironment<>{varblock}[2][.9\textwidth]{%
-  \setlength{\textwidth}{#1}
-  \begin{actionenv}#3%
-    \def\insertblocktitle{#2}%
-    \par%
-    \usebeamertemplate{block begin}}
-  {\par%
-    \usebeamertemplate{block end}%
-  \end{actionenv}}
-  
 %\setbeamertemplate{frametitle continuation}{
 % \leavevmode%
 %  \hbox{%
@@ -69,16 +74,21 @@
 
 \begin{document}
 
-\AtBeginSection[]
-{
-\begin{frame}{\textbf{Outline}}
-\tableofcontents[currentsection]
-\end{frame}
-}
+%\AtBeginSection[]
+%{
+%\begin{frame}{\textbf{Outline}}
+%\tableofcontents[currentsection]
+%\end{frame}
+%}
 
 % Title page
-\begin{frame}
-\titlepage
-	\end{frame}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
 \include{introduction}
+\include{worklastsem}
+\include{workcurrentsem}
+\include{results}
 \end{document}
