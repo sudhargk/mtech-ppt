@@ -44,9 +44,14 @@
     \end{beamercolorbox}%
   }
 }
+\setbeamercolor{block title}{fg=black!60!blue,bg=white!40!black!40}
 \setbeamercolor{frametitle}{fg=white,bg=blue!30!black!30}
 \setbeamerfont{frametitle}{family=\rm}
+\setbeamerfont*{block title}{family=\ttfamily,series=\bfseries,size=\normalsize}
+\setbeamerfont*{block body}{size=\footnotesize}
 \setlength{\FrameSep}{2pt}
+\setbeamertemplate{bibliography item}{[\theenumiv]}
+%\setbeamercolor{background canvas}{bg=blue!80!white!30}
 \newenvironment<>{varblock}[2][.9\textwidth]
 	{	\setlength{\textwidth}{#1}
 		\begin{actionenv}#3 
@@ -69,7 +74,8 @@
 \subject{Video Event Localization and Identification} 
 \title{\texttt{ Video Event Localization and Identification}}
 \author[]{ Sudharshan G K}
-\date[\today]{}
+\date[\today]{\today}
+
 
 
 \begin{document}

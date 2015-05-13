@@ -1,20 +1,20 @@
 \section{\texttt{Current work}}
 \begin{frame}{\textbf{Saliency Estimation}}
 \begin{columns}
-	\begin{column}{0.48\textwidth}
+	\begin{column}{0.44\textwidth}
 		\begin{varblock}[\textwidth]{Objective}
-			To identify pixels that are quite distinct and grabs attention.
+			To identify pixels that are quite distinct and grab attention.
 		\end{varblock}
 	\end{column}
-	\begin{column}{0.48\textwidth}
+	\begin{column}{0.53\textwidth}
 	\begin{varblock}[\textwidth]{Techniques}
 		\footnotesize
 		\begin{multicols}{2}
 		\begin{enumerate}[(a)]
-    			\item Hierarchical Color Based
-    			\item Spectral Distribution Based
-		    \item Context Aware Based
-    			\item Regional Contrast
+    			\item Hierarchical color 
+    			\item Spectral distribution\footnotemark
+		    \item Context aware
+    			\item {\color{blue}\textbf{Regional contrast}}\footnotemark
 		\end{enumerate}
 		\end{multicols}			
 	\end{varblock}
@@ -25,6 +25,8 @@
 		\includegraphics[width=0.7\textwidth]{./img/saliency.eps}
 		\caption{A general approach for saliency estimation.}
 	\end{figure}
+	\footnotetext[10]{\tiny{Liu, Tie, Zejian Yuan, Jian Sun, Jingdong Wang, Nanning Zheng, Xiaoou Tang, and Heung-Yeung Shum. "Learning to detect a salient object." Pattern Analysis and Machine Intelligence, IEEE Transactions on 33, no. 2 (2011): 353-367.}}
+	\footnotetext[11]{\tiny{Cheng, Ming-Ming, Guo-Xin Zhang, Niloy J. Mitra, Xiaolei Huang, and Shi-Min Hu. "Global contrast based salient region detection." In Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference on, pp. 409-416. IEEE, 2011.}}
 \end{frame}
 
 \begin{frame}{\textbf{Saliency Estimation}}
@@ -33,28 +35,28 @@
 		\begin{subfigure}[c]{\textwidth}
 			\centering
 			\includegraphics[width=0.65\textwidth]{./img/sal_hcb.png}
-			\caption{Hierarchical Color}
+			\caption{Hierarchical color}
 		\end{subfigure}
 	\end{minipage}}
 	\fbox{\begin{minipage}{.45\textwidth}		
 		\begin{subfigure}[c]{\textwidth}
 			\centering
 			\includegraphics[width=0.78\textwidth]{./img/sal_sdb.png}
-			\caption{Spectral Distrbution}
+			\caption{Spectral distribution}
 		\end{subfigure}
 	\end{minipage}}	
 	\fbox{\begin{minipage}{.45\textwidth}		
 		\begin{subfigure}[c]{\textwidth}
 			\centering
 			\includegraphics[width=0.90\textwidth]{./img/sal_ca.png}
-			\caption{Context Aware}
+			\caption{Context aware}
 		\end{subfigure}
 	\end{minipage}}
 	\fbox{\begin{minipage}{.45\textwidth}
 		\begin{subfigure}[c]{\textwidth}
 			\centering
 			\includegraphics[width=0.94\textwidth]{./img/sal_rc.png}
-			\caption{Region Contrast}
+			\caption{Region contrast}
 		\end{subfigure}
 	\end{minipage}}
 \end{figure}
@@ -66,12 +68,13 @@
 		\begin{figure}
 		\centering
 		\includegraphics[width=\textwidth]{./img/saliencyall.eps}
+		\caption{Saliency mask obtained for different techniques.}
 	\end{figure}
 	\end{column}
 	\begin{column}{0.48\textwidth}
 	\begin{scriptsize}
 		\begin{table}[htbp]
-		\caption{Results on Weizmann Dataset}
+		\caption{Results on Weizmann dataset\footnotemark}
 			\begin{subtable}[Single object segmentation]{\textwidth}
 			\centering
 			\caption{Single object segmentation}
@@ -100,6 +103,7 @@
 	\end{scriptsize}
 	\end{column}
 \end{columns}
+\footnotetext[12]{\tiny{\url{http://www.wisdom.weizmann.ac.il/~vision/Seg_Evaluation_DB/index.html}}}
 \end{frame}
 
 
@@ -115,11 +119,11 @@
 				\item Morphological Operations
 			\end{itemize}
 		\end{varblock}
-		\begin{varblock}[\textwidth]{Objective}
+		\begin{varblock}[\textwidth]{Tried models}
 				\begin{itemize}
-				\item Eigen Based
+				\item Eigen
 				\item Semi supervised learning
-				\item \textbf{\color{blue}Gausian Mixture Based}
+				\item \textbf{\color{blue}Gausian Mixture}~\href{run:videos/smooth/dance.avi}{{\color{red}[video]}}
 			\end{itemize}	
 		\end{varblock}
 	\end{column}
@@ -127,7 +131,7 @@
 	\begin{figure}
 		\centering
 		\fbox{\includegraphics[width=0.95\textwidth]{./img/temporal_smoothening.png}}
-		\caption{Approach for Temporal Smoothening.}
+		\caption{Approach for temporal smoothening.}
 	\end{figure}
 	\end{column}
 \end{columns}
@@ -138,13 +142,13 @@
 	\begin{column}{0.48\textwidth}
 		\begin{figure}
 			\centering
-				\includegraphics[width=0.95\textwidth]{./img/example_smoothen.eps}
-				\caption{Gaussian Mixture Based Smoothening.}
+				\includegraphics[width=0.95\textwidth]{./img/example_ds.eps}
+				\caption{Odd and even rows depict the ground truth and predicted mask respectively for change detection dataset videos.}
 		\end{figure}
 	\end{column}
 	\begin{column}{0.48\textwidth}
 	  \begin{table}[htbp]
-   		\caption{Results on Change Detection Dataset.}
+   		\caption{Results on Change detection dataset\footnotemark.}
    		\begin{scriptsize} \begin{center}
    		\begin{tabular}{|l|c|c|c|} \hline
        		 \textbf{challenges} & \textbf{precision} & \textbf{recall} & \textbf{f-measure} \\ \hline
@@ -161,6 +165,7 @@
  	 \end{table} 
 	\end{column}
 \end{columns}
+\footnotetext[13]{\tiny{Wang, Yi, Pierre-Marc Jodoin, Fatih Porikli, Janusz Konrad, Yannick Benezeth, and Prakash Ishwar. "CDnet 2014: An expanded change detection benchmark dataset." In Computer Vision and Pattern Recognition Workshops (CVPRW), 2014 IEEE Conference on, pp. 393-400. IEEE, 2014.}}
 \end{frame}
 
 \begin{frame}{\textbf{Tracking}}

@@ -2,66 +2,76 @@
 \begin{frame}{\textbf{Experimental Setup}}
 \begin{columns}
 	\begin{column}{0.9\textwidth}
-		\begin{varblock}[\textwidth]{UCF 50 Dataset}
+		\begin{varblock}[\textwidth]{UCF 50 dataset\footnotemark}
 			\begin{itemize}
 				\item It has 50 classes with $\approx 5$ hours of training data.
 				\item Contains video with diverse object appearance, object scale, viewpoint, cluttered background, illumination conditions, etc.
-				\item Video classes are further grouped into body-motion (BM), human-object interaction (HOI), playing musical instruments (PI), indoor sports (IS) and outdoor sports.
+				\item Video classes are further grouped into body-motion (BM), human-object interaction (HOI), playing musical instruments (PI), indoor sports (IS) and outdoor sports (OS).
 			\end{itemize}
 		\end{varblock}
+		\begin{center}
+			Example ~ \href{run:videos/allclasses.avi}{\color{red}[video]}
+		\end{center}
 	\end{column}	
 \end{columns}
+\footnotetext[14]{\tiny{http://crcv.ucf.edu/data/UCF50.php}}
 \end{frame}
-\begin{frame}{\textbf{Approach I}}
+\begin{frame}{\textbf{CNN Approach I}}
 \begin{columns}
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 		\centering
 		\fbox{\includegraphics[height=0.7\textheight]{./img/cnn_config1.png}}
-		\caption{CNN Architecture for Approach I}
+		\caption{CNN architecture for Approach I}
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
+	\begin{varblock}[0.85\textwidth]{}
 		\begin{itemize}
-			\item Complete frame resized to $120 \times 90$ with inactive pixels masked.
-			\item Only Gray channel.
+			\item Complete frame resized to $120 \times 90$ with in-active pixels masked.
+			\item Only gray channel.
 		\end{itemize}
+	\end{varblock}
 	\end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{\textbf{Approach II}}
+\begin{frame}{\textbf{CNN Approach II}}
 \begin{columns}
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 		\centering
 		\fbox{\includegraphics[height=0.7\textheight]{./img/cnn_config2.png}}
-		\caption{CNN Architecture for Approach II}
+		\caption{CNN architecture for Approach II}
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
+	\begin{varblock}[0.85\textwidth]{}
 		\begin{itemize}
 			\item Bounded regions are smartly resized to $80 \times 60$.
-			\item All 3 Color channels.
+			\item All 3 color channels.
 		\end{itemize}
+	\end{varblock}
 	\end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{\textbf{Approach III}}
+\begin{frame}{\textbf{CNN Approach III}}
 \begin{columns}
 	\begin{column}{0.6\textwidth}
 	\begin{figure}
 		\centering
 		\fbox{\includegraphics[height=0.7\textheight]{./img/cnn_config3.png}}
-		\caption{CNN Architecture for Approach III}
+		\caption{CNN architecture for Approach III}
 	\end{figure}
 	\end{column}
 	\begin{column}{0.4\textwidth}
+		\begin{varblock}[0.85\textwidth]{}
 		\begin{itemize}
 			\item Bounded regions are smartly resized to $80 \times 60$.
-			\item Gray channel and Frame differencing.
+			\item Gray channel and frame differencing.
 		\end{itemize}
+		\end{varblock}
 	\end{column}
 \end{columns}
 \end{frame}
@@ -78,7 +88,7 @@
         			I & 40.14\\ \hline
 				II (with norm) &  {\color{yellow}\textbf{17.07}} \\ \hline		 
 				III (with norm) &  25.23 \\ \hline
-				\cite{recognizing50} &  33.26 \\ \hline
+				Baseline\footnotemark &  33.26 \\ \hline
    			\end{tabular}
   	 	\end{subtable}
 		\begin{subtable}[Individual groups]{0.6\textwidth}
@@ -98,16 +108,17 @@
 		\begin{small}
 		\begin{multicols}{3}
 		\begin{itemize}
-			\item BM~~{\color{red}[video]}
-			\item HOI~~{\color{red}[video]}
-			\item PI~~{\color{red}[video]}
-			\item IS~~{\color{red}[video]}
-			\item OS~~{\color{red}[video]}
-			\item Combined~{\color{red}[video]}
+			\item BM~~~\href{run:videos/results/BM.avi}{\color{red}[video]}
+			\item HOI~~~\href{run:videos/results/HOI.avi}{\color{red}[video]}
+			\item PI~~~\href{run:videos/results/PI.avi}{\color{red}[video]}
+			\item IS~~~\href{run:videos/results/SI.avi}{\color{red}[video]}
+			\item OS~~~\href{run:videos/results/SO.avi}{\color{red}[video]}
+			\item Combined~~\href{run:videos/results/all.avi}{\color{red}[video]}
 		\end{itemize}
 		\end{multicols}
 		\end{small}
 	\end{center}
+	\footnotetext[15]{\tiny{Reddy, Kishore K., and Mubarak Shah. "Recognizing 50 human action categories of web videos." Machine Vision and Applications 24, no. 5 (2013): 971-981.}}
 \end{frame}
 
 \section{\texttt{Conclusion}}
@@ -118,15 +129,15 @@
 		\begin{itemize}
 			\item Built deep neural network toolkit providing an ease to configure for different neural network models.
 			\item Proposed a novel approach for video event localization by fusing the background subtraction and saliency measure to obtain better event classifier.
-			\item Suggested appraoch for temporal smoothening is robust to sudden variations.
+			\item Suggested approach for temporal smoothening and tracking provides robustness to sudden variations.
 		\end{itemize}
 		\end{varblock}
 	\end{column}	
-	\begin{column}{0.48\textwidth}
+	\begin{column}{0.45\textwidth}
 		\begin{varblock}[\textwidth]{Future Work}
 		\begin{itemize}
-			\item To revisit the indigenous convolutional neural network (CNN), to incorporate hierarchical learning. Layers will be trained in a way to discriminate the classes that were considered similar in the previous layer.
-			\item Explore ways for associating the objects and events that are present
+			\item To revisit the indigenous convolutional neural network (CNN), to incorporate hierarchical learning. Layers will be \\ trained in a way to discriminate the \\ classes that were considered similar in the previous layer.
+			\item Explore ways for associating the objects \\ and events that are present
 in the given video segment giving automated video annotation.
 		\end{itemize}
 		\end{varblock}
@@ -136,7 +147,7 @@ in the given video segment giving automated video annotation.
 \begin{frame}[plain]
 	\begin{center}
 	\begin{Huge}
-		{\color{green}\texttt{THANKS}}
+		{\color{green!40!black!80}\texttt{THANKS}}
 	\end{Huge}
 	\end{center}
 \end{frame}
